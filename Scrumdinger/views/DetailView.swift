@@ -1,0 +1,89 @@
+//
+//  DetailView.swift
+//  Scrumdinger
+//
+//  Created by Cory Sebastian on 5/23/21.
+//
+
+import SwiftUI
+
+struct DetailView: View {
+    @Binding var scrum: DailyScrum
+    @State private var data: DailyScrum.Data = DailyScrum.Data()
+    @State private var isPresented = false
+    var body: some View {
+        List {
+            Section(header: Text("Meeting Info")) {
+                NavigationLink(
+                    destination: MeetingView(scrum: $scrum)) {
+                        Label("Start Meeting", systemImage: "timer")
+                            .font(.headline)
+                            .foregroundColor(.accentColor)
+                            .accessibilityLabel(Text("start meeting"))
+                    }
+                HStack {
+                    Label("Length", systemImage: "clock")
+                        .accessibilityLabel(Text("meeting length"))
+                    Spacer()
+                    Text("\(scrum.lengthInMinutes) minutes")
+                }
+                HStack {
+                    Label("Color", systemImage: "paintpalette")
+                    Spacer()
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(scrum.color)
+                }
+                .accessibilityElement(children: .ignore)
+            }
+            Section(header: Text("Attendees")) {
+                ForEach(scrum.attendees, id: \.self) { attendee in
+                    Label(attendee, systemImage: "person")
+                        .accessibilityLabel(Text("person"))
+                        .accessibilityValue(Text(attendee))
+                }
+            }
+            
+            Section(header: Text("History")) {
+                if scrum.history.isEmpty {
+                    Label("No meetings yet.." , systemImage: "calendar.badge.exclamationmark")
+                }
+                ForEach(scrum.history) { history in
+                    HStack {
+                        Image(systemName: "calendar")
+                        Text(history.date, style: .date)
+                    }
+                }
+                
+            }
+        }
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarItems(trailing: Button("Edit") {
+            isPresented = true
+            data = scrum.data
+        })
+        .navigationTitle(scrum.title)
+        .fullScreenCover(isPresented: $isPresented) {
+            NavigationView {
+                EditView(scrumData: $data)
+                    .navigationTitle(scrum.title)
+                    .navigationBarItems(leading: Button("Cancel") {
+                        isPresented = false
+                    }, trailing: Button("Done") {
+                        isPresented = false
+                        scrum.update(from: data)
+                    })
+            }
+        }
+    }
+}
+
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            NavigationView{
+                DetailView(scrum: .constant(DailyScrum.data[0])).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+            }
+
+        }
+    }
+}
