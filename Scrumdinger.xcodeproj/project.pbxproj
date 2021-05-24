@@ -25,6 +25,7 @@
 		623AA76D265C338D0014AC9B /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AA76C265C338D0014AC9B /* AVPlayer+Ding.swift */; };
 		623AA76F265C34FC0014AC9B /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AA76E265C34FC0014AC9B /* History.swift */; };
 		623AA771265C3BBA0014AC9B /* ScrumData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AA770265C3BBA0014AC9B /* ScrumData.swift */; };
+		623AA773265C45F70014AC9B /* MeetingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623AA772265C45F70014AC9B /* MeetingTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		623AA76C265C338D0014AC9B /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayer+Ding.swift"; sourceTree = "<group>"; };
 		623AA76E265C34FC0014AC9B /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		623AA770265C3BBA0014AC9B /* ScrumData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumData.swift; sourceTree = "<group>"; };
+		623AA772265C45F70014AC9B /* MeetingTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				623AA746265A0F690014AC9B /* MeetingView.swift */,
 				623AA763265C2A190014AC9B /* ScrumProgressViewStyle.swift */,
 				623AA758265AAFFE0014AC9B /* ScrumsView.swift */,
+				623AA772265C45F70014AC9B /* MeetingTimerView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				623AA760265B64580014AC9B /* EditView.swift in Sources */,
 				623AA76D265C338D0014AC9B /* AVPlayer+Ding.swift in Sources */,
 				623AA771265C3BBA0014AC9B /* ScrumData.swift in Sources */,
+				623AA773265C45F70014AC9B /* MeetingTimerView.swift in Sources */,
 				623AA762265C23090014AC9B /* MeetingHeaderView.swift in Sources */,
 				623AA757265A1AF70014AC9B /* CardView.swift in Sources */,
 				623AA768265C2F480014AC9B /* MeetingFooterView.swift in Sources */,
